@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+protocol CaptureCameraViewDelegate {
+    func passImage(image: UIImage)
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
