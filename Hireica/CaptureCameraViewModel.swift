@@ -20,6 +20,7 @@ class CaptureCameraViewModel: NSObject, ObservableObject {
     func launchCamera() {
         if let session = self.session {
             Task {
+//            DispatchQueue.global(qos: .background).async {
                 session.startRunning()
             }
             return
@@ -45,9 +46,11 @@ class CaptureCameraViewModel: NSObject, ObservableObject {
 
         let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
         videoPreviewLayer.videoGravity = .resizeAspectFill
-        videoPreviewLayer.connection?.videoRotationAngle = .greatestFiniteMagnitude
+        videoPreviewLayer.connection?.videoOrientation = .portrait
+        videoPreviewLayer.frame = previewView.bounds
 
         Task {
+//        DispatchQueue.global(qos: .background).async {
             session.startRunning()
         }
 
