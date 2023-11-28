@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		53D2F5982B14D29500D77146 /* HireicaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5972B14D29500D77146 /* HireicaApp.swift */; };
-		53D2F59A2B14D29500D77146 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5992B14D29500D77146 /* ContentView.swift */; };
+		53D2F59A2B14D29500D77146 /* CaptureCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5992B14D29500D77146 /* CaptureCameraView.swift */; };
 		53D2F59C2B14D29600D77146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D2F59B2B14D29600D77146 /* Assets.xcassets */; };
 		53D2F5A02B14D29600D77146 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D2F59F2B14D29600D77146 /* Preview Assets.xcassets */; };
 		53D2F5AA2B14D29600D77146 /* HireicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5A92B14D29600D77146 /* HireicaTests.swift */; };
 		53D2F5B42B14D29600D77146 /* HireicaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5B32B14D29600D77146 /* HireicaUITests.swift */; };
 		53D2F5B62B14D29600D77146 /* HireicaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5B52B14D29600D77146 /* HireicaUITestsLaunchTests.swift */; };
+		53D2F5C52B161B7500D77146 /* CaptureCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		53D2F5942B14D29500D77146 /* Hireica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hireica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D2F5972B14D29500D77146 /* HireicaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireicaApp.swift; sourceTree = "<group>"; };
-		53D2F5992B14D29500D77146 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		53D2F5992B14D29500D77146 /* CaptureCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCameraView.swift; sourceTree = "<group>"; };
 		53D2F59B2B14D29600D77146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D2F59D2B14D29600D77146 /* Hireica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hireica.entitlements; sourceTree = "<group>"; };
 		53D2F59F2B14D29600D77146 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		53D2F5AF2B14D29600D77146 /* HireicaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HireicaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D2F5B32B14D29600D77146 /* HireicaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireicaUITests.swift; sourceTree = "<group>"; };
 		53D2F5B52B14D29600D77146 /* HireicaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireicaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				53D2F5972B14D29500D77146 /* HireicaApp.swift */,
-				53D2F5992B14D29500D77146 /* ContentView.swift */,
+				53D2F5992B14D29500D77146 /* CaptureCameraView.swift */,
+				53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */,
 				53D2F59B2B14D29600D77146 /* Assets.xcassets */,
 				53D2F59D2B14D29600D77146 /* Hireica.entitlements */,
 				53D2F59E2B14D29600D77146 /* Preview Content */,
@@ -259,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53D2F59A2B14D29500D77146 /* ContentView.swift in Sources */,
+				53D2F59A2B14D29500D77146 /* CaptureCameraView.swift in Sources */,
 				53D2F5982B14D29500D77146 /* HireicaApp.swift in Sources */,
+				53D2F5C52B161B7500D77146 /* CaptureCameraViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +428,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,6 +467,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
