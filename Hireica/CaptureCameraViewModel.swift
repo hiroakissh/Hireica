@@ -72,6 +72,26 @@ class CaptureCameraViewModel: NSObject, ObservableObject {
             self.captureSetting = captureSetting
         }
     }
+
+    func filter(image: UIImage, filterName: String, param: (Float, String)?) -> UIImage? {
+        guard let ciImage = CIImage(image: image),
+              let filter = CIFilter(name: filterName) else {
+            return nil
+        }
+
+        filter.setDefaults()
+        if let param = param {
+            filter.setValue(param.0, forKey: param.1)
+        }
+
+        filter.setValue(ciImage, forKey: kCIInputImageKey)
+
+        guard let outputCIImage = filter.outputImage,
+              let cgImage = CIContext().createCGImage(outputCIImage, from: outputCIImage.extent) else
+        { return nil }
+
+        return UIImage(cgImage: cgImage, scale: 1, orientation: .down)
+    }
 }
 
 extension CaptureCameraViewModel: AVCapturePhotoCaptureDelegate {
@@ -86,5 +106,8 @@ extension CaptureCameraViewModel: AVCapturePhotoCaptureDelegate {
             return
         }
         imageData = image
+        if let testImage = filter(image: image, filterName: "CIVibrance", param: (2, "inputAmount")) {
+            UIImageWriteToSavedPhotosAlbum(testImage, nil, nil, nil)
+        }
     }
 }
