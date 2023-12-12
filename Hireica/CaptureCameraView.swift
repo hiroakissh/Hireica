@@ -35,6 +35,7 @@ struct CaptureCameraView: View {
         }
         .onChange(of: viewModel.imageData, { _, imageData in
             guard let imageData = imageData else { return }
+            print(imageData)
             delegate?.passImage(image: imageData)
             dismiss()
         })

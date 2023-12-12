@@ -15,6 +15,7 @@
 		53D2F5B42B14D29600D77146 /* HireicaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5B32B14D29600D77146 /* HireicaUITests.swift */; };
 		53D2F5B62B14D29600D77146 /* HireicaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5B52B14D29600D77146 /* HireicaUITestsLaunchTests.swift */; };
 		53D2F5C52B161B7500D77146 /* CaptureCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */; };
+		53D2F5C72B1790A400D77146 /* CustomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5C62B1790A400D77146 /* CustomFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		53D2F5B32B14D29600D77146 /* HireicaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireicaUITests.swift; sourceTree = "<group>"; };
 		53D2F5B52B14D29600D77146 /* HireicaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireicaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCameraViewModel.swift; sourceTree = "<group>"; };
+		53D2F5C62B1790A400D77146 /* CustomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				53D2F59B2B14D29600D77146 /* Assets.xcassets */,
 				53D2F59D2B14D29600D77146 /* Hireica.entitlements */,
 				53D2F59E2B14D29600D77146 /* Preview Content */,
+				53D2F5C62B1790A400D77146 /* CustomFilter.swift */,
 			);
 			path = Hireica;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				53D2F59A2B14D29500D77146 /* CaptureCameraView.swift in Sources */,
 				53D2F5982B14D29500D77146 /* HireicaApp.swift in Sources */,
+				53D2F5C72B1790A400D77146 /* CustomFilter.swift in Sources */,
 				53D2F5C52B161B7500D77146 /* CaptureCameraViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,7 +46,8 @@ class CaptureCameraViewModel: NSObject, ObservableObject {
 
         let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
         videoPreviewLayer.videoGravity = .resizeAspectFill
-        videoPreviewLayer.connection?.videoOrientation = .portrait
+        // TODO: よくわかってないので理解する
+//        videoPreviewLayer.connection?.videoOrientation = .portrait
         videoPreviewLayer.frame = previewView.bounds
 
         Task {
@@ -73,6 +74,7 @@ class CaptureCameraViewModel: NSObject, ObservableObject {
         }
     }
 
+    // 保存する画像のFilter
     func filter(image: UIImage, filterName: String, param: (Float, String)?) -> UIImage? {
         guard let ciImage = CIImage(image: image),
               let filter = CIFilter(name: filterName) else {
@@ -105,9 +107,36 @@ extension CaptureCameraViewModel: AVCapturePhotoCaptureDelegate {
               let image = UIImage(data: fileData) else {
             return
         }
-        imageData = image
+//        imageData = image
         if let testImage = filter(image: image, filterName: "CIVibrance", param: (2, "inputAmount")) {
             UIImageWriteToSavedPhotosAlbum(testImage, nil, nil, nil)
         }
+    }
+}
+
+extension CaptureCameraViewModel: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+
+        // CIImageの作成
+        let ciImage = CIImage(cvImageBuffer: pixelBuffer)
+
+        // 赤色のフィルターをかける
+        let colorFilter = CIFilter(name: "CIColorControls")!
+        colorFilter.setValue(ciImage, forKey: kCIInputImageKey)
+        colorFilter.setValue(1.0, forKey: kCIInputSaturationKey)
+        colorFilter.setValue(2.0, forKey: kCIInputContrastKey)
+        colorFilter.setValue(1.0, forKey: kCIInputBrightnessKey)
+
+        guard let outputImage = colorFilter.outputImage else { return }
+
+        let context = CIContext()
+        let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
+
+        let filteredImage = UIImage(cgImage: cgImage!)
+        imageData = filteredImage
+//        DispatchQueue.main.async {
+//            self.imageData = filteredImage
+//        }
     }
 }
