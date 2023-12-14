@@ -76,6 +76,67 @@ class Recorder: NSObject, ObservableObject {
     }
 
     func startRecording() {
+        audioRecorder?.record()
+        isRecording = false
 
     }
+
+    func stopRecording() {
+        audioRecorder?.stop()
+        isRecording = false
+
+        // 録音停止時にwavファイルのパスをコンソールに表示する
+        if let audioFileURL = audioRecorder?.url {
+            print(audioFileURL)
+
+            getWaveFormData { waveformData in
+                print("wave length=", waveformData.count)
+                self.waveformData = waveformData
+            }
+        }
+    }
+
+    func getWaveFormData(completion: @escaping ([Float]) -> Void) {
+        guard let audioFileURL = audioRecorder?.url else { return }
+
+        do {
+            let audioFile = try AVAudioFile(forReading: audioFileURL)
+            let audioFormat = AVAudioFormat(
+                standardFormatWithSampleRate: audioFile.processingFormat.sampleRate,
+                channels: audioFile.processingFormat.channelCount
+            )
+
+            let audioBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat!, frameCapacity: UInt32(audioFile.length))
+            try audioFile.read(into: audioBuffer!)
+
+            let floatArray = Array(UnsafeBufferPointer(start: audioBuffer!.floatChannelData![0], count: Int(audioBuffer!.frameLength)))
+
+            completion(floatArray)
+        } catch {
+            print("Error getting waveform data: \(error)")
+        }
+    }
+
+    func playRecording() {
+        guard let url = audioFileURL else { return }
+
+        do {
+            try? AVAudioSession.sharedInstance().setCategory(.playAndRecord, options: .defaultToSpeaker)
+            try? AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
+            try? AVAudioSession.sharedInstance().setActive(true)
+
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
+            player?.play()
+        } catch {
+            print("Error playing audio: \(error)")
+        }
+    }
+}
+
+// 点群データの構造体
+struct PointsData: Identifiable {
+    var xValue: Float
+    var yValue: Float
+    var id = UUID()
 }
