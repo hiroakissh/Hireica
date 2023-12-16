@@ -149,4 +149,30 @@ class DSP {
 
         return (averageAmplitude, freq)
     }
+
+    static func db(x: [Float], dBref: Float) -> [Float] {
+        // db変換
+        print("dBredf=", dBref)
+        return x.map { 20 * log10($0 / dBref)}
+    }
+
+    static func aweightings(frequencies: [Float], dB: [Float]) -> [Float] {
+        // Aスケール特性（聴感補正）
+        let minDb = dB.min() ?? Float.leastNormalMagnitude
+
+        return frequencies.enumerated().map { index, f in
+            let f = f == 0 ? 1e-6 : f
+
+            let term1 = pow(12194, 2) * pow(f, 4)
+            let term2 = (pow(f, 2) + pow(20.6, 2))
+            let term3 = sqrt((pow(f, 2) + pow(107.7, 2)) * (pow(f, 2) + pow(727.9, 2)))
+            let term4 = pow(f, 2) * pow(12194, 2)
+            
+            let ra = term1 / (term2 * term3 * term4)
+            let aWeightedDb = 20 * log10(ra) + 2.000
+
+            // 元のdB値の下限値を下回る場合は、元のdb値の下限値に置き換える
+            return aWeightedDb < dB[index] ? dB[index] : aWeightedDb
+        }
+    }
 }

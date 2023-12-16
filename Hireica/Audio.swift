@@ -77,7 +77,7 @@ class Recorder: NSObject, ObservableObject {
 
     func startRecording() {
         audioRecorder?.record()
-        isRecording = false
+        isRecording = true
 
     }
 
