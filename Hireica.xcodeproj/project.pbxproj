@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53D1DD602B28A211002693B3 /* fourierTransformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */; };
+		53D1DD622B2922C4002693B3 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD612B2922C4002693B3 /* Audio.swift */; };
+		53D1DD662B2CA15E002693B3 /* DSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD652B2CA15E002693B3 /* DSP.swift */; };
 		53D2F5982B14D29500D77146 /* HireicaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5972B14D29500D77146 /* HireicaApp.swift */; };
 		53D2F59A2B14D29500D77146 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2F5992B14D29500D77146 /* ContentView.swift */; };
 		53D2F59C2B14D29600D77146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D2F59B2B14D29600D77146 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourierTransformModel.swift; sourceTree = "<group>"; };
+		53D1DD612B2922C4002693B3 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		53D1DD652B2CA15E002693B3 /* DSP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP.swift; sourceTree = "<group>"; };
 		53D2F5942B14D29500D77146 /* Hireica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hireica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D2F5972B14D29500D77146 /* HireicaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireicaApp.swift; sourceTree = "<group>"; };
 		53D2F5992B14D29500D77146 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +103,9 @@
 			children = (
 				53D2F5972B14D29500D77146 /* HireicaApp.swift */,
 				53D2F5992B14D29500D77146 /* ContentView.swift */,
+				53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */,
+				53D1DD612B2922C4002693B3 /* Audio.swift */,
+				53D1DD652B2CA15E002693B3 /* DSP.swift */,
 				53D2F59B2B14D29600D77146 /* Assets.xcassets */,
 				53D2F59D2B14D29600D77146 /* Hireica.entitlements */,
 				53D2F59E2B14D29600D77146 /* Preview Content */,
@@ -261,6 +270,9 @@
 			files = (
 				53D2F59A2B14D29500D77146 /* ContentView.swift in Sources */,
 				53D2F5982B14D29500D77146 /* HireicaApp.swift in Sources */,
+				53D1DD602B28A211002693B3 /* fourierTransformModel.swift in Sources */,
+				53D1DD622B2922C4002693B3 /* Audio.swift in Sources */,
+				53D1DD662B2CA15E002693B3 /* DSP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +436,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音の周波数解析で使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,6 +475,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音の周波数解析で使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
