@@ -9,16 +9,21 @@ import SwiftUI
 import Charts
 
 struct ContentView: View {
+    @StateObject private var recorder = TestAudioRecorder()
 
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor(
-            red: 0.1,
-            green: 0.1,
-            blue: 0.1,
-            alpha: 0.2
-        )
+    var body: some View {
+        AudioRecorderView(testRecorder: recorder)
     }
 
+//    init() {
+//        UITabBar.appearance().backgroundColor = UIColor(
+//            red: 0.1,
+//            green: 0.1,
+//            blue: 0.1,
+//            alpha: 0.2
+//        )
+//    }
+//
     @State private var selectedFs = 2048
 
     @State var dataFreq: [PointsData] = []
@@ -28,26 +33,26 @@ struct ContentView: View {
 
     @State private var text_overlapRatio: String = "50"
     @State private var text_dbref: String = "2e-5"
-
-    var body: some View {
-        // UIとイベント
-        TabView() {
-            RecView(
-                dataFreq: $dataFreq,
-                text_overlapRatio: $text_overlapRatio,
-                text_dbref: $text_dbref,
-                selectedFs: $selectedFs
-            )
-            GraphView(dataFreq: $dataFreq)
-            SettingView(
-                selectedFs: $selectedFs,
-                text_overlapRatio: $text_overlapRatio,
-                text_dbref: $text_dbref
-            )
-        }
-        .accentColor(.blue)
-        .edgesIgnoringSafeArea(.top)
-    }
+//
+//    var body: some View {
+//        // UIとイベント
+//        TabView() {
+//            RecView(
+//                dataFreq: $dataFreq,
+//                text_overlapRatio: $text_overlapRatio,
+//                text_dbref: $text_dbref,
+//                selectedFs: $selectedFs
+//            )
+//            GraphView(dataFreq: $dataFreq)
+//            SettingView(
+//                selectedFs: $selectedFs,
+//                text_overlapRatio: $text_overlapRatio,
+//                text_dbref: $text_dbref
+//            )
+//        }
+//        .accentColor(.blue)
+//        .edgesIgnoringSafeArea(.top)
+//    }
 }
 
 #Preview {
