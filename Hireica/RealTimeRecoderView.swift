@@ -49,6 +49,8 @@ class TestAudioRecorder: NSObject, ObservableObject  {
 
     func stopRecording() {
         testAudioRecorder.stop()
+        // audioDataの削除
+        audioData.removeAll()
     }
 
     private func startMetering() {
