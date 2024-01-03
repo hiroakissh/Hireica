@@ -32,8 +32,40 @@ struct SwiftChartSample: View {
             .lineStyle(StrokeStyle(lineWidth: 1.5))
             .interpolationMethod(.linear)
         }
+        .chartXScale(
+            domain: (data.first?.time ?? 0.0) ... (data.last?.time ?? 1.0),
+            range: .plotDimension(
+                startPadding: data.first?.time ?? 0.0,
+                endPadding: data.last?.time ?? 1.0
+            ),
+            type: .linear
+        )
         .frame(height: 300)
         .padding()
+
+        Button {
+            startTimer()
+        } label: {
+            Text("Update data")
+        }
+    }
+
+    func startTimer() {
+        // 1秒ごとにメソッドを更新するTimerを作成
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            // ここに1秒ごとに実行したい処理を書く
+            refreshData()
+        }
+    }
+
+    func refreshData() {
+        let lastTime = data.last?.time ?? 0.0
+        data.removeFirst()
+
+        // 新しいデータを生成して追加
+        let newPower = Double.random(in: 0...20)
+        let newTime = lastTime + 0.1
+        data.append(.init(time: newTime, power: newPower))
     }
 }
 
