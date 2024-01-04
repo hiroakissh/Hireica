@@ -13,7 +13,7 @@ import MetalKit
 
 class TestAudioRecorder: NSObject, ObservableObject  {
     var testAudioRecorder: AVAudioRecorder!
-    @Published var audioData: [Float] = []
+    @Published var audioData: [SampleData] = []
 
     override init() {
         super.init()
@@ -40,17 +40,11 @@ class TestAudioRecorder: NSObject, ObservableObject  {
     }
 
     func startRecording() {
-        audioData.removeAll()
+//        audioData.removeAll()
         try? AVAudioSession.sharedInstance().setCategory(.record, mode: .default)
         try? AVAudioSession.sharedInstance().setActive(true)
         testAudioRecorder.record()
         startMetering()
-    }
-
-    func stopRecording() {
-        testAudioRecorder.stop()
-        // audioDataの削除
-        audioData.removeAll()
     }
 
     private func startMetering() {
@@ -58,8 +52,17 @@ class TestAudioRecorder: NSObject, ObservableObject  {
             self.testAudioRecorder.updateMeters()
             let averagePower = self.testAudioRecorder.averagePower(forChannel: 0)
             let normalizedPower = pow(10, (0.05 * averagePower))
-            self.audioData.append(normalizedPower)
+            self.audioData.append(.init(time: Float(self.audioData.endIndex) * 0.1, power: normalizedPower))
+            print("add power: \(normalizedPower)")
+            print("averagePower: \(averagePower)")
+            print("output: \(150.0 * (1.0 - CGFloat(normalizedPower)))")
+            print("")
         }
+    }
+
+
+    func stopRecording() {
+        testAudioRecorder.stop()
     }
 
     private func getDocumentsDirectory() -> URL {
@@ -88,44 +91,38 @@ struct AudioRecorderView: View {
                 } else {
                     self.testRecorder.startRecording()
                 }
-            }) {
+            }, label: {
                 Text(self.testRecorder.testAudioRecorder.isRecording ? "Stop Recording" : "Start Recording")
                     .padding()
                     .foregroundColor(.white)
                     .background(self.testRecorder.testAudioRecorder.isRecording ? Color.red : Color.green)
                     .cornerRadius(8)
-            }
+            })
 
             if !testRecorder.audioData.isEmpty {
-                PlotView(data: testRecorder.audioData)
-                    .frame(height: 200)
+                Chart(testRecorder.audioData) { data in
+                    LineMark(
+                        x: .value("time [s]", data.time),
+                        y: .value("Power [dB]", 300 * (1.0 - data.power)) // geometry.size.height * (1 - CGFloat(value))
+                    )
+                    .lineStyle(StrokeStyle(lineWidth: 1.5))
+                    .interpolationMethod(.linear)
+                }
+                .animation(.default, value: 1.0)
+                .chartXScale(
+                    domain: ((testRecorder.audioData.last?.time ?? 0.0) - 0.9) ... (testRecorder.audioData.last?.time ?? 1.0),
+                    range: .plotDimension(
+                        startPadding: CGFloat(testRecorder.audioData.first?.time ?? 0.0),
+                        endPadding: CGFloat(testRecorder.audioData.last?.time ?? 1.0)
+                    ),
+                    type: .linear
+                )
+                .frame(height: 300)
+                .padding()
             }
         }
         .padding()
     }
-}
-
-struct PlotView: View {
-    let data: [Float]
-
-    var body: some View {
-        GeometryReader { geometry in
-            Path { path in
-                for (index, value) in data.enumerated() {
-                    print(data)
-                    let x = geometry.size.width * CGFloat(index) / CGFloat(data.count - 1)
-                    let y = geometry.size.height * (1 - CGFloat(value))
-                    print("x: ",x)
-                    print("y: ",y)
-                    if index == 0 {
-                        path.move(to: CGPoint(x: x, y: y))
-                    } else {
-                        path.addLine(to: CGPoint(x: x, y: y))
-                    }
-                }
-            }
-            .stroke(Color.blue, lineWidth: 2)
-        }
 }
 
 //@main
@@ -138,4 +135,4 @@ struct PlotView: View {
 //        }
 //    }
 //}
-}
+//}
