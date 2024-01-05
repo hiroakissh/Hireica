@@ -15,7 +15,7 @@ struct RecorderPlotView: View {
         Chart(audioData) { data in
             LineMark(
                 x: .value("time [s]", data.time),
-                y: .value("Power [dB]", 300 * (1.0 - data.power)) // geometry.size.height * (1 - CGFloat(value))
+                y: .value("Power [dB]", data.power) // geometry.size.height * (1 - CGFloat(value))
             )
             .lineStyle(StrokeStyle(lineWidth: 1.5))
             .interpolationMethod(.linear)

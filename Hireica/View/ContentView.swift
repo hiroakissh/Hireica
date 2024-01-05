@@ -9,10 +9,11 @@ import SwiftUI
 import Charts
 
 struct ContentView: View {
-    @StateObject private var recorder = TestAudioRecorder()
+//    @ObservedObject private var recorder = RealTimeAudioRecorder()
+    @StateObject private var recorder = RealTimeAudioRecorder()
 
     var body: some View {
-        AudioRecorderView(testRecorder: recorder)
+        AudioRecorderView(realTimeRecorder: recorder)
     }
 
 //    init() {
