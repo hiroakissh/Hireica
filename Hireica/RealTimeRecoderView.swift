@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 import AVFoundation
 import Charts
-import MetalKit
 
 class TestAudioRecorder: NSObject, ObservableObject  {
     var testAudioRecorder: AVAudioRecorder!
