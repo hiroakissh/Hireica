@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5364B1FC2B44FCB900388006 /* SwiftChartSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364B1FB2B44FCB900388006 /* SwiftChartSample.swift */; };
 		53D1DD602B28A211002693B3 /* fourierTransformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */; };
 		53D1DD622B2922C4002693B3 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD612B2922C4002693B3 /* Audio.swift */; };
 		53D1DD662B2CA15E002693B3 /* DSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD652B2CA15E002693B3 /* DSP.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5364B1FB2B44FCB900388006 /* SwiftChartSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChartSample.swift; sourceTree = "<group>"; };
 		53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourierTransformModel.swift; sourceTree = "<group>"; };
 		53D1DD612B2922C4002693B3 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		53D1DD652B2CA15E002693B3 /* DSP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */,
 				53D1DD612B2922C4002693B3 /* Audio.swift */,
 				53D1DD652B2CA15E002693B3 /* DSP.swift */,
+				5364B1FB2B44FCB900388006 /* SwiftChartSample.swift */,
 				53D2F59B2B14D29600D77146 /* Assets.xcassets */,
 				53D2F59D2B14D29600D77146 /* Hireica.entitlements */,
 				53D2F59E2B14D29600D77146 /* Preview Content */,
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5364B1FC2B44FCB900388006 /* SwiftChartSample.swift in Sources */,
 				53D2F59A2B14D29500D77146 /* ContentView.swift in Sources */,
 				53D1DD682B306E2F002693B3 /* RecView.swift in Sources */,
 				53D1DD6A2B306E49002693B3 /* GraphView.swift in Sources */,

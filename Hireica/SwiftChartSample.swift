@@ -32,11 +32,12 @@ struct SwiftChartSample: View {
             .lineStyle(StrokeStyle(lineWidth: 1.5))
             .interpolationMethod(.linear)
         }
+        .animation(.default, value: 1.0)
         .chartXScale(
             domain: (data.first?.time ?? 0.0) ... (data.last?.time ?? 1.0),
             range: .plotDimension(
-                startPadding: data.first?.time ?? 0.0,
-                endPadding: data.last?.time ?? 1.0
+                startPadding: CGFloat(data.first?.time ?? 0.0),
+                endPadding: CGFloat(data.last?.time ?? 1.0)
             ),
             type: .linear
         )
@@ -44,7 +45,12 @@ struct SwiftChartSample: View {
         .padding()
 
         Button {
-            startTimer()
+            // アニメーションの効果なし
+            //            startTimer()
+            // アニメーションの効果あり
+            withAnimation {
+                startTimer()
+            }
         } label: {
             Text("Update data")
         }
@@ -65,13 +71,13 @@ struct SwiftChartSample: View {
         // 新しいデータを生成して追加
         let newPower = Double.random(in: 0...20)
         let newTime = lastTime + 0.1
-        data.append(.init(time: newTime, power: newPower))
+        data.append(.init(time: newTime, power: Float(newPower)))
     }
 }
 
 struct SampleData: Identifiable {
-    var time: Double
-    var power: Double
+    var time: Float
+    var power: Float
     var id = UUID()
 }
 
