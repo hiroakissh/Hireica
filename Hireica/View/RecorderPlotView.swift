@@ -22,9 +22,9 @@ struct RecorderPlotView: View {
         }
         .animation(.default, value: 1.0)
         .chartXScale(
-            domain: ((audioData.last?.time ?? 0.0) - 0.9) ... (audioData.last?.time ?? 1.0),
+            domain: ((audioData.last?.time ?? 1.0) - 1.0) ... (audioData.last?.time ?? 1.0),
             range: .plotDimension(
-                startPadding: CGFloat(audioData.first?.time ?? 0.0),
+                startPadding: CGFloat(audioData.last?.time ?? 1.0) - 1.0,
                 endPadding: CGFloat(audioData.last?.time ?? 1.0)
             ),
             type: .linear
