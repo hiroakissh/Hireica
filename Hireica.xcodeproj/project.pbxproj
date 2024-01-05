@@ -92,6 +92,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5364B1FD2B47FAEF00388006 /* Recoder */ = {
+			isa = PBXGroup;
+			children = (
+				53D1DD612B2922C4002693B3 /* Audio.swift */,
+			);
+			path = Recoder;
+			sourceTree = "<group>";
+		};
+		5364B1FE2B47FAFB00388006 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */,
+				53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */,
+				53D2F5C62B1790A400D77146 /* CustomFilter.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		5364B1FF2B47FB0100388006 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53D1DD692B306E49002693B3 /* GraphView.swift */,
+				53D1DD6B2B306E5B002693B3 /* SettingView.swift */,
+				53D1DD672B306E2F002693B3 /* RecView.swift */,
+				53D1DD6D2B31C158002693B3 /* RealTimeRecoderView.swift */,
+				53D2F5992B14D29500D77146 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5364B2002B47FB5200388006 /* FFT */ = {
+			isa = PBXGroup;
+			children = (
+				53D1DD652B2CA15E002693B3 /* DSP.swift */,
+			);
+			path = FFT;
+			sourceTree = "<group>";
+		};
+		5364B2012B47FB7B00388006 /* FrequencyLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FrequencyLogic;
+			sourceTree = "<group>";
+		};
 		53D2F58B2B14D29500D77146 = {
 			isa = PBXGroup;
 			children = (
@@ -115,18 +160,13 @@
 		53D2F5962B14D29500D77146 /* Hireica */ = {
 			isa = PBXGroup;
 			children = (
+				5364B2012B47FB7B00388006 /* FrequencyLogic */,
+				5364B2002B47FB5200388006 /* FFT */,
+				5364B1FF2B47FB0100388006 /* View */,
+				5364B1FE2B47FAFB00388006 /* Camera */,
+				5364B1FD2B47FAEF00388006 /* Recoder */,
 				53D2F5972B14D29500D77146 /* HireicaApp.swift */,
-				53D1DD6D2B31C158002693B3 /* RealTimeRecoderView.swift */,
-				53D1DD692B306E49002693B3 /* GraphView.swift */,
-				53D1DD6B2B306E5B002693B3 /* SettingView.swift */,
-				53D1DD672B306E2F002693B3 /* RecView.swift */,
-				53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */,
-				53D1DD612B2922C4002693B3 /* Audio.swift */,
-				53D1DD652B2CA15E002693B3 /* DSP.swift */,
 				5364B1FB2B44FCB900388006 /* SwiftChartSample.swift */,
-				53D2F5992B14D29500D77146 /* ContentView.swift */,
-				53D2F5C42B161B7500D77146 /* CaptureCameraViewModel.swift */,
-				53D2F5C62B1790A400D77146 /* CustomFilter.swift */,
 				53D2F59B2B14D29600D77146 /* Assets.xcassets */,
 				53D2F59D2B14D29600D77146 /* Hireica.entitlements */,
 				53D2F59E2B14D29600D77146 /* Preview Content */,
