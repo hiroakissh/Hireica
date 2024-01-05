@@ -48,11 +48,14 @@ class RealTimeAudioRecorder: NSObject, ObservableObject  {
     }
 
     private func startMetering() {
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             self.testAudioRecorder.updateMeters()
             let averagePower = self.testAudioRecorder.averagePower(forChannel: 0)
             let normalizedPower = pow(10, (0.05 * averagePower))
             self.audioData.append(.init(time: ceil(Float(self.audioData.endIndex))/10, power: normalizedPower))
+            print("time1: \(ceil(Float(self.audioData.endIndex))/10)")
+            print("time2: \(Date())")
         }
     }
 
@@ -73,5 +76,9 @@ extension RealTimeAudioRecorder: AVAudioRecorderDelegate {
         } else {
             print("Recording failed.")
         }
+    }
+
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        print("Audio Error: \(error.debugDescription)")
     }
 }
