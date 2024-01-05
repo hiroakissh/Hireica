@@ -11,7 +11,7 @@ import SwiftUI
 struct HireicaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CaptureCameraView()
         }
     }
 }
