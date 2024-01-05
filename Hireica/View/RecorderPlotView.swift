@@ -35,5 +35,18 @@ struct RecorderPlotView: View {
 }
 
 #Preview {
-    RecorderPlotView()
+    @State var previewData: [AudioData] = [
+        .init(time: 0.1, power: 100.0),
+        .init(time: 0.2, power: 200.0),
+        .init(time: 0.3, power: 300.0),
+        .init(time: 0.4, power: 400.0),
+        .init(time: 0.5, power: 500.0),
+        .init(time: 0.6, power: 400.0),
+        .init(time: 0.7, power: 300.0),
+        .init(time: 0.8, power: 200.0),
+        .init(time: 0.9, power: 100.0),
+        .init(time: 1.0, power: 0.0),
+    ]
+    
+    return RecorderPlotView(audioData: previewData)
 }
