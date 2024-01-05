@@ -8,11 +8,10 @@
 import SwiftUI
 import Combine
 import AVFoundation
-import Charts
 
 class TestAudioRecorder: NSObject, ObservableObject  {
     var testAudioRecorder: AVAudioRecorder!
-    @Published var audioData: [SampleData] = []
+    @Published var audioData: [AudioData] = []
 
     override init() {
         super.init()
@@ -99,7 +98,7 @@ struct AudioRecorderView: View {
             })
 
             if !testRecorder.audioData.isEmpty {
-                PlotView(audioData: testRecorder.audioData)
+                RecorderPlotView(audioData: testRecorder.audioData)
             }
         }
         .padding()
@@ -107,7 +106,7 @@ struct AudioRecorderView: View {
 }
 
 struct PlotView: View {
-    let audioData: [SampleData]
+    let audioData: [AudioData]
 
     var body: some View {
         Chart(audioData) { data in
