@@ -25,12 +25,17 @@ struct AudioRecorderView: View {
                 Text(self.realTimeRecorder.isRecorderFlag ? "Stop Recording" : "Start Recording")
                     .padding()
                     .foregroundColor(.white)
-                    .background(self.realTimeRecorder.testAudioRecorder.isRecording ? Color.red : Color.green)
+                    .background(self.realTimeRecorder.isRecorderFlag ? Color.red : Color.green)
                     .cornerRadius(8)
             })
 
-            if !realTimeRecorder.audioData.isEmpty {
+            if !realTimeRecorder.audioData.isEmpty && realTimeRecorder.audioData[0].power != 1e-6 {
                 RecorderPlotView(audioData: realTimeRecorder.audioData)
+            } else if !realTimeRecorder.audioData.isEmpty  {
+                Text(realTimeRecorder.audioData[0].power != 1e-6 ? "" : "Retry Tap")
+                    .onAppear {
+                        realTimeRecorder.stopRecording()
+                    }
             }
         }
         .padding()

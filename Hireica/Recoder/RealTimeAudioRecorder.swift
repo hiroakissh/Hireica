@@ -54,14 +54,16 @@ class RealTimeAudioRecorder: NSObject, ObservableObject  {
     }
 
     private func startMetering() {
-        timer?.invalidate()
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
+        }
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             self.testAudioRecorder.updateMeters()
             let averagePower = self.testAudioRecorder.averagePower(forChannel: 0)
             let normalizedPower = pow(10, (0.05 * averagePower))
             self.audioData.append(.init(time: ceil(Float(self.audioData.endIndex))/10, power: normalizedPower))
-            print("time1: \(ceil(Float(self.audioData.endIndex))/10)")
-            print("time2: \(Date())")
+            print("data: \(normalizedPower)")
         }
     }
 
