@@ -16,13 +16,13 @@ struct AudioRecorderView: View {
         VStack {
             Button(action: {
                 print("TODO: \(self.realTimeRecorder.testAudioRecorder.prepareToRecord())")
-                if self.realTimeRecorder.testAudioRecorder.isRecording {
+                if self.realTimeRecorder.isRecorderFlag {
                     self.realTimeRecorder.stopRecording()
                 } else {
                     self.realTimeRecorder.startRecording()
                 }
             }, label: {
-                Text(self.realTimeRecorder.testAudioRecorder.isRecording ? "Stop Recording" : "Start Recording")
+                Text(self.realTimeRecorder.isRecorderFlag ? "Stop Recording" : "Start Recording")
                     .padding()
                     .foregroundColor(.white)
                     .background(self.realTimeRecorder.testAudioRecorder.isRecording ? Color.red : Color.green)

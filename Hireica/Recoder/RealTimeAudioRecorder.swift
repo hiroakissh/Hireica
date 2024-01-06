@@ -11,6 +11,7 @@ import AVFoundation
 class RealTimeAudioRecorder: NSObject, ObservableObject  {
 
     @Published var audioData: [AudioData] = []
+    @Published var isRecorderFlag = false
 
     var testAudioRecorder: AVAudioRecorder!
     var timer: Timer?
@@ -41,9 +42,14 @@ class RealTimeAudioRecorder: NSObject, ObservableObject  {
 
     func startRecording() {
         audioData.removeAll()
-        try? AVAudioSession.sharedInstance().setCategory(.record, mode: .default)
-        try? AVAudioSession.sharedInstance().setActive(true)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.record, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch(let error) {
+            print("Audio Start Error: \(error.localizedDescription)")
+        }
         testAudioRecorder.record()
+        isRecorderFlag = true
         startMetering()
     }
 
@@ -73,6 +79,7 @@ extension RealTimeAudioRecorder: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             print("Recording finished successfully.")
+            isRecorderFlag = false
         } else {
             print("Recording failed.")
         }
