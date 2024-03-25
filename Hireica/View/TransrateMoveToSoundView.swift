@@ -42,7 +42,7 @@ struct VideoPickerView: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-        let picker = UIDocumentPickerViewController(documentTypes: ["public.moview"], in: .open)
+        let picker = UIDocumentPickerViewController(forOpeningContentTypes: [.mpeg4Movie])
         picker.allowsMultipleSelection = false
         picker.delegate = context.coordinator
         return picker
