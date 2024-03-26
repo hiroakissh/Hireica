@@ -59,7 +59,7 @@ struct VideoPickerView: UIViewControllerRepresentable {
 
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
             if let url = urls.first {
-                parent.selectedVideo = url
+                parent.selectedVideo = URL(fileURLWithPath: url.relativePath)
             }
         }
     }

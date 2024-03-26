@@ -51,6 +51,7 @@
 		5364B2042B47FC4F00388006 /* RecorderPlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderPlotView.swift; sourceTree = "<group>"; };
 		5364B2062B4801D200388006 /* RealTimeAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeAudioRecorder.swift; sourceTree = "<group>"; };
 		53D0DA4F2BB1C05B00DF1F21 /* TransrateMoveToSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransrateMoveToSoundView.swift; sourceTree = "<group>"; };
+		53D0DA512BB317F200DF1F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourierTransformModel.swift; sourceTree = "<group>"; };
 		53D1DD612B2922C4002693B3 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		53D1DD652B2CA15E002693B3 /* DSP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP.swift; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		53D2F5962B14D29500D77146 /* Hireica */ = {
 			isa = PBXGroup;
 			children = (
+				53D0DA512BB317F200DF1F21 /* Info.plist */,
 				5364B2012B47FB7B00388006 /* FrequencyLogic */,
 				5364B2002B47FB5200388006 /* FFT */,
 				5364B1FF2B47FB0100388006 /* View */,
@@ -518,6 +520,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hireica/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します。";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音の周波数解析で使用します";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "画像をライブラリに保存します。";
@@ -559,6 +563,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hireica/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します。";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音の周波数解析で使用します";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "画像をライブラリに保存します。";
