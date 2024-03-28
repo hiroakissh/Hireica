@@ -51,7 +51,7 @@ struct ContentView_Previews: PreviewProvider {
 //}
 
 // 動画ファイルパス
-let videoPath = "/content/test_moview2.MOV"
+let videoPath = "/private/var/mobile/Containers/Data/Application/BAD64C7F-4669-4059-AFD9-816BC8A3622E/Documents/mov_hts-samp003.mp4"
 
 // サンプリング周波数
 let sampleRate: Float = 44100
@@ -61,11 +61,11 @@ var fftResults: [[Float]] = []
 
 // 動画ファイルからフレームをキャプチャしてFFTを実行
 func processVideo() {
-    guard let url = URL(string: videoPath) else {
-        print("Invalid video URL")
-        return
-    }
-
+//    guard let url = URL(string: videoPath) else {
+//        print("Invalid video URL")
+//        return
+//    }
+    let url = URL(fileURLWithPath: videoPath)
     let asset = AVAsset(url: url)
     let reader = try! AVAssetReader(asset: asset)
 
