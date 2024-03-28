@@ -15,10 +15,16 @@ struct moveToSoundView: View {
     var body: some View {
         VStack {
             Text("FFT Result (Magnitude Spectrum) - First Segment")
-            FFTPlotView(fftResult: fftResults[0])
+            Button {
+                print(fftResults[0])
+                print(fftResults[fftResults.count - 1])
+            } label: {
+                Text("Test")
+            }
+//            FFTPlotView(fftResult: fftResults[0])
 
             Text("FFT Result (Magnitude Spectrum) - Last Segment")
-            FFTPlotView(fftResult: fftResults[fftResults.count - 1])
+//            FFTPlotView(fftResult: fftResults[fftResults.count - 1])
 
             Button("Process Video") {
                 processVideo()
@@ -34,15 +40,15 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct FFTPlotView: View {
-    let fftResult: [Float]
-
-    var body: some View {
-        LineView(data: fftResult.map { Double($0) }, title: "", legend: "", style: ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, gradientColor: GradientColor(start: .blue, end: .green), textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: .gray))
-            .frame(height: 300)
-            .padding()
-    }
-}
+//struct FFTPlotView: View {
+//    let fftResult: [Float]
+//
+//    var body: some View {
+//        LineView(data: fftResult.map { Double($0) }, title: "", legend: "", style: ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, gradientColor: GradientColor(start: .blue, end: .green), textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: .gray))
+//            .frame(height: 300)
+//            .padding()
+//    }
+//}
 
 // 動画ファイルパス
 let videoPath = "/content/test_moview2.MOV"
@@ -79,10 +85,10 @@ func processVideo() {
         let ciImage = CIImage(cvImageBuffer: imageBuffer)
 
         let context = CIContext(options: nil)
-        let cgImage = context.createCGImage(ciImage, from: ciImage.extent)!
+        var cgImage = context.createCGImage(ciImage, from: ciImage.extent)!
 
-        let frame = vImage_Buffer()
-        vImageBuffer_InitWithCGImage(&frame, &cgImage, 32, [UInt32(kCGImageAlphaNoneSkipFirst)])
+        var frame = vImage_Buffer()
+//        vImageBuffer_InitWithCGImage(&frame, (vImage_CGImageFormat(cgImage: cgImage))!, .none, [UInt32(kCGImageAlphaNoneSkipFirst)], .zero)
 
         // 画像処理とFFTを実行
         processFrame(frame)
