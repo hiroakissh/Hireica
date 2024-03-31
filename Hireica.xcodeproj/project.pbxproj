@@ -10,6 +10,8 @@
 		5364B2032B47FBD800388006 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364B2022B47FBD800388006 /* AudioData.swift */; };
 		5364B2052B47FC4F00388006 /* RecorderPlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364B2042B47FC4F00388006 /* RecorderPlotView.swift */; };
 		5364B2072B4801D200388006 /* RealTimeAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364B2062B4801D200388006 /* RealTimeAudioRecorder.swift */; };
+		53D0DA502BB1C05B00DF1F21 /* TransrateMoveToSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D0DA4F2BB1C05B00DF1F21 /* TransrateMoveToSoundView.swift */; };
+		53D0DA532BB31F6D00DF1F21 /* moveToSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D0DA522BB31F6D00DF1F21 /* moveToSoundView.swift */; };
 		53D1DD602B28A211002693B3 /* fourierTransformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */; };
 		53D1DD622B2922C4002693B3 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD612B2922C4002693B3 /* Audio.swift */; };
 		53D1DD662B2CA15E002693B3 /* DSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1DD652B2CA15E002693B3 /* DSP.swift */; };
@@ -49,6 +51,9 @@
 		5364B2022B47FBD800388006 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		5364B2042B47FC4F00388006 /* RecorderPlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderPlotView.swift; sourceTree = "<group>"; };
 		5364B2062B4801D200388006 /* RealTimeAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeAudioRecorder.swift; sourceTree = "<group>"; };
+		53D0DA4F2BB1C05B00DF1F21 /* TransrateMoveToSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransrateMoveToSoundView.swift; sourceTree = "<group>"; };
+		53D0DA512BB317F200DF1F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		53D0DA522BB31F6D00DF1F21 /* moveToSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveToSoundView.swift; sourceTree = "<group>"; };
 		53D1DD5F2B28A211002693B3 /* fourierTransformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourierTransformModel.swift; sourceTree = "<group>"; };
 		53D1DD612B2922C4002693B3 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		53D1DD652B2CA15E002693B3 /* DSP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP.swift; sourceTree = "<group>"; };
@@ -125,6 +130,8 @@
 				53D1DD6D2B31C158002693B3 /* RealTimeRecoderView.swift */,
 				53D2F5992B14D29500D77146 /* ContentView.swift */,
 				5364B2042B47FC4F00388006 /* RecorderPlotView.swift */,
+				53D0DA4F2BB1C05B00DF1F21 /* TransrateMoveToSoundView.swift */,
+				53D0DA522BB31F6D00DF1F21 /* moveToSoundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +174,7 @@
 		53D2F5962B14D29500D77146 /* Hireica */ = {
 			isa = PBXGroup;
 			children = (
+				53D0DA512BB317F200DF1F21 /* Info.plist */,
 				5364B2012B47FB7B00388006 /* FrequencyLogic */,
 				5364B2002B47FB5200388006 /* FFT */,
 				5364B1FF2B47FB0100388006 /* View */,
@@ -341,7 +349,9 @@
 				53D1DD682B306E2F002693B3 /* RecView.swift in Sources */,
 				53D1DD6A2B306E49002693B3 /* GraphView.swift in Sources */,
 				53D2F5982B14D29500D77146 /* HireicaApp.swift in Sources */,
+				53D0DA532BB31F6D00DF1F21 /* moveToSoundView.swift in Sources */,
 				53D1DD602B28A211002693B3 /* fourierTransformModel.swift in Sources */,
+				53D0DA502BB1C05B00DF1F21 /* TransrateMoveToSoundView.swift in Sources */,
 				53D1DD6E2B31C158002693B3 /* RealTimeRecoderView.swift in Sources */,
 				53D1DD6C2B306E5B002693B3 /* SettingView.swift in Sources */,
 				53D1DD622B2922C4002693B3 /* Audio.swift in Sources */,
@@ -514,6 +524,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hireica/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します。";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音の周波数解析で使用します";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "画像をライブラリに保存します。";
@@ -555,6 +567,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hireica/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します。";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音の周波数解析で使用します";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "画像をライブラリに保存します。";
