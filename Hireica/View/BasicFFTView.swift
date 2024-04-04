@@ -13,6 +13,14 @@ struct BasicFFTView: View {
     }
 }
 
+// Sin波をFFT解析する
+
+// Sin波の周期を変動できるようにする
+
+// Sin波の表示
+
+// FFT結果の表示
+
 #Preview {
     BasicFFTView()
 }
