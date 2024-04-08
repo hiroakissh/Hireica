@@ -27,10 +27,15 @@ struct SinWaveView: View {
                 let width = geometry.size.width
                 let height = geometry.size.height
 
+                print("width: \(width)")
+                print("height: \(height)")
+
                 path.move(to: CGPoint(x: 0, y: height / 2))
                 for x in stride(from: 0, to: width, by: 10) {
                     let angle = (Double(x) / width) * 2 * .pi
                     let y = (sin(angle) * 50) + (height / 2)
+                    print("angle: \(angle)")
+                    print("y: \(y)")
                     path.addLine(to: CGPoint(x: x, y: y))
                 }
             }
