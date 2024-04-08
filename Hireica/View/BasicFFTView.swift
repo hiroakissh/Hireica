@@ -9,7 +9,33 @@ import SwiftUI
 
 struct BasicFFTView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Sin Wave")
+                .font(.title)
+                .padding()
+            SinWaveView()
+                .frame(height: 200)
+                .padding()
+        }
+    }
+}
+
+struct SinWaveView: View {
+    var body: some View {
+        GeometryReader { geometry in
+            Path { path in
+                let width = geometry.size.width
+                let height = geometry.size.height
+
+                path.move(to: CGPoint(x: 0, y: height / 2))
+                for x in stride(from: 0, to: width, by: 10) {
+                    let angle = (Double(x) / width) * 2 * .pi
+                    let y = (sin(angle) * 50) + (height / 2)
+                    path.addLine(to: CGPoint(x: x, y: y))
+                }
+            }
+            .stroke(.blue, lineWidth: 2)
+        }
     }
 }
 
