@@ -43,8 +43,6 @@ struct SinWaveView: View {
 
 // Sin波の周期を変動できるようにする
 
-// Sin波の表示
-
 // FFT結果の表示
 
 #Preview {
