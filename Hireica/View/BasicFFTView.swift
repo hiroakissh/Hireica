@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct BasicFFTView: View {
+    @State var frequency = 0
+
     var body: some View {
         VStack {
             Text("Sin Wave")
                 .font(.title)
                 .padding()
+            TextField("周波数を入力してください", value: $frequency, format: .number)
             SinWaveView()
                 .frame(height: 200)
                 .padding()
@@ -36,6 +39,7 @@ struct SinWaveView: View {
                     let y = (sin(angle) * 50) + (height / 2)
                     print("angle: \(angle)")
                     print("y: \(y)")
+                    print("sin: \(sin(.pi/2.0))")
                     path.addLine(to: CGPoint(x: x, y: y))
                 }
             }
