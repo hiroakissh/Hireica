@@ -39,9 +39,6 @@ struct SinWaveView: View {
 
                 let frequencyRad = frequency * 2 * .pi
 
-                print("width: \(width)")
-                print("height: \(height)")
-
                 path.move(to: CGPoint(x: 0, y: height / 2))
                 for x in stride(from: 0, to: frequencyRad, by: .pi / 180 ) {
                     let angle = x
